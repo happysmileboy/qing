@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+
+{%block css_static %}
+  <link href="{%static 'css/main.css' %}?ver=1.00" rel="stylesheet">
+{%endblock%}
+
+{% block section %}
+
+  <div class= 'mainboard'>
+    <img src="{% static 'img/main/main_board.png' %}">
+  </div>
+  <div class="mentor_wrap">
+    <div class="mentor_box">
+      <div class="mentor_photo">
+        <img src="{% static "img/main/mainmentor.jpg"%}">
+        <p>박재형</p>
+        <p>고려대학교 영어영문학과</p>
+        <p>자소서 / 논술</p>
+      </div>
+      <div class="mentor_photo">
+        <img src="{% static "img/main/mainmentor.jpg"%}">
+        <p>박재형</p>
+        <p>고려대학교 영어영문학과</p>
+        <p>자소서 / 논술</p>
+      </div>
+      <div class="mentor_photo">
+        <img src="{% static "img/main/mainmentor.jpg"%}">
+        <p>박재형</p>
+        <p>고려대학교 영어영문학과</p>
+        <p>자소서 / 논술</p>
+      </div>
+    </div>
+    <div class="mentor_link_box">
+      <h3>큐잉 대표 멘토단</h3>
+      <br>
+      <p>큐잉멘토단은 실제 현장에서 누구보다 진지하게 모든 것을 경험했던 진정한 전문가 입니다</p>
+      <br>
+      <p class="mentor_link"><a href="#">더 알아보기 >></a></p>
+    </div>
+
+  </div>
+
+{% endblock %}

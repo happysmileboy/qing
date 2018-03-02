@@ -1,0 +1,63 @@
+{% load static %}
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>qing</title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+  <!--myjs-->
+  <script src="{% static 'js/base.js' %}"></script>
+  {% block js_static %}{% endblock %}
+
+  <!--mycss-->
+  <link href="{%static 'css/base.css' %}?ver=1.04" rel="stylesheet">
+  {% block css_static %}{% endblock %}
+
+</head>
+<body>
+  <!--nav-->
+    <nav>
+      <h1 class='nav_logo'>
+        <a href="{%url 'core:main'%}">
+          <img src="{%static 'base/logo.png'%}">
+          <p class="weight_normal">15분 전화 멘토링</p><p class="weight_bold">, 큐잉</p>
+        </a>
+      </h1>
+      <ul>
+        <li><a href="{%url 'core:service'%}">서비스 소개</a></li>
+        <li><a href="{%url 'mentor:consult_main'%}">멘토 소개 / 접수</a></li>
+        <li><a href="#contact">요금안내</a></li>
+        <li><a href="#about">로그인</a></li>
+      </ul>
+    </nav>
+
+  <!--section-->
+
+  <section>
+    {%block section%}
+    {%endblock%}
+  </section>
+
+  <!--footer-->
+  <footer>
+    <div class="footer_wrap">
+      <h3>큐잉</h3>
+      <p>(주)로켓단</p>
+      <br>
+      <p>대표이사/ 박성환</p>
+      <p>주소</p>
+      <p>대표전화</p>
+      <p>사업자번호</p>
+      <p>통신판매업번호</p>
+      <p>문의하기</p>
+
+    </div>
+  </footer>
+
+</body>
+</html>

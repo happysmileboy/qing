@@ -1,0 +1,34 @@
+.mainboard{
+  width: 100%;
+  min-height:616px;
+}
+
+.mentor_wrap{
+  display:flex;
+  width: 100%;
+  height:500px;
+  background-color: white;
+}
+
+.mentor_box{
+  margin-left:5%;
+  padding-top:80px;
+  display:flex;
+  min-width:800px;
+  height:auto;
+}
+.mentor_photo{
+  margin-left:50px;
+  margin-right:50px;
+  text-align: center
+}
+.mentor_link_box{
+  display: block;
+  max-width:400px;
+  height:auto;
+  padding-top:80px;
+}
+.mentor_link{
+  text-align: right;
+}
+}

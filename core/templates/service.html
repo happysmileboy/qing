@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+
+{%block css_static %}
+  <link href="{%static 'css/service.css' %}?ver=1.01" rel="stylesheet">
+{%endblock%}
+
+{% block section %}
+  <div class="service_board">
+    <img src="{% static 'img/service/introducing.png' %}">
+  </div>
+  <div class='service_guide_wrap'>
+    <div class='service_guide'>
+      <h1>이용 가이드</h1>
+      <br>
+      <br>
+      <div class='service_guide_step'>
+        <div>
+          <img src="{% static 'img/service/1.png'%}">
+          <h2>1. 멘토 찾기</h2>
+          <br>
+          <p>멘토 소개/접수 페이지에서 </p>
+          <p>희망 분야와 멘토 선택</p>
+        </div>
+        <div>
+          <img src="{% static 'img/service/2.png'%}">
+          <h2>2. 신청서 작성</h2>
+          <br>
+          <p>양식에 맞게 신청서 작성 </p>
+          <br>
+        </div>
+        <div>
+          <img src="{% static 'img/service/3.png'%}">
+          <br>
+          <h2>3. 결제</h2>
+          <br>
+          <p>결제 확인 후 멘토 매칭 진행</p>
+          <br>
+        </div>
+        <div>
+          <img src="{% static 'img/service/4.png'%}">
+          <br>
+          <h2>4. 매칭 완료 SMS</h2>
+          <br>
+          <p>상세 내용 및 시간 공지</p>
+          <br>
+        </div>
+        <div>
+          <img src="{% static 'img/service/5.png'%}">
+          <h2>5. 전화 연결</h2>
+          <br>
+          <p>15분/ 30분/ 45분 신청서를 기반으로</p>
+          <p>멘토링 진행</p>
+        </div>
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+.service_guide_wrap{
+  background-color:#1E3666;
+  width: 100%;
+  min-height:400px;
+}
+.service_guide{
+  color:white;
+  padding-left:100px;
+  padding-top:80px;
+  padding-bottom: 80px;
+  max-width: 850px;
+  height: auto;
+}
+.service_guide_step div{
+  width:270px;
+  display:inline-block;
+  margin-bottom: 50px;
+}

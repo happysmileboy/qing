@@ -1,0 +1,18 @@
+.select_wrap{
+  display: flex;
+  width: 100%;
+  height: auto;
+}
+.select_box{
+  display: flex;
+  width:32%;
+  height:700px;
+  align-items: center;
+  flex-direction: row;
+  background-color: #1e3666;
+  color:white;
+  text-align: center;
+}
+.select_box a{
+  margin:auto;
+}
