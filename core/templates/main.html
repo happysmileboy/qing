@@ -2,13 +2,13 @@
 {% load static %}
 
 {%block css_static %}
-  <link href="{%static 'css/main.css' %}?ver=1.00" rel="stylesheet">
+  <link href="{%static 'css/core/main.css' %}?ver=1.01" rel="stylesheet">
 {%endblock%}
 
 {% block section %}
 
   <div class= 'mainboard'>
-    <img src="{% static 'img/main/main_board.png' %}">
+    <img src="{% static 'img/main/main_board.png' %}" class = "mainboard_img">
   </div>
   <div class="mentor_wrap">
     <div class="mentor_box">

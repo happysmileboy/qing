@@ -1,0 +1,15 @@
+.FAQ_wrap{
+  max-width:80%;
+  margin:auto;
+  padding-top:50px;
+}
+
+.FAQ_wrap hr{
+  width:70px;
+}
+
+.request_mentor{
+  text-align: right;
+  display: block;
+  color:#529bcd;
+}

@@ -2,6 +2,10 @@
   width: 100%;
   min-height:616px;
 }
+.mainboard_img{
+  width:100%;
+  height: auto;
+}
 
 .mentor_wrap{
   display:flex;

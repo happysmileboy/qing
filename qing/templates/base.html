@@ -15,7 +15,7 @@
   {% block js_static %}{% endblock %}
 
   <!--mycss-->
-  <link href="{%static 'css/base.css' %}?ver=1.04" rel="stylesheet">
+  <link href="{%static 'css/base.css' %}?ver=1.06" rel="stylesheet">
   {% block css_static %}{% endblock %}
 
 </head>
@@ -31,7 +31,7 @@
       <ul>
         <li><a href="{%url 'core:service'%}">서비스 소개</a></li>
         <li><a href="{%url 'mentor:consult_main'%}">멘토 소개 / 접수</a></li>
-        <li><a href="#contact">요금안내</a></li>
+        <li><a href="{%url 'core:FAQ'%}">요금안내</a></li>
         <li><a href="#about">로그인</a></li>
       </ul>
     </nav>

@@ -9,3 +9,7 @@ def main(request):
 
 def service(request):
     return render(request, 'service.html')
+
+
+def FAQ(request):
+    return render(request, 'FAQ.html')

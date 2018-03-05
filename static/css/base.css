@@ -94,3 +94,10 @@ h1,h2,h3,h4,h5,h6,p{
 .weight_bold{
   font-weight: bold;
 }
+
+hr{
+  border: 0;
+  height: 1px;
+  background: black;
+  margin: 20px 0;
+}

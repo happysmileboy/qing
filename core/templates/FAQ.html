@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+{%block css_static %}
+  <link href="{%static 'css/core/FAQ.css' %}?ver=1.01" rel="stylesheet">
+{%endblock%}
+
+{% block section %}
+
+  <div class="FAQ_wrap">
+    <div>
+      <hr>
+      <h1>이용 요금</h1>
+      <br>
+      <br>
+    </div>
+    <div class="">
+    </div>
+    <div>
+      <hr>
+      <h1>멘토 등록하기</h1>
+      <p>멘토 신청 클릭      >      신청서 작성      >      본인 확인 및 서류 검토
+      </p>
+      <p>> 추가 서류 확인 및 개별 연락     >     큐잉 최종 승인     >     웹 페이지 멘토 업로드
+      </p>
+      <a href="#" class="request_mentor">멘토 신청하기>></a>
+      <br>
+      <br>
+    </div>
+    <div>
+      <hr>
+      <h1>자주하는 질문</h1>
+      <br>
+      <br>
+    </div>
+
+  </div>
+
+{% endblock %}
