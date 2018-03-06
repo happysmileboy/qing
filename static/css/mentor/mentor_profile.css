@@ -1,0 +1,28 @@
+.profile_wrap{
+  margin:auto;
+  width:80%;
+  text-align: center;
+}
+
+.profile_detail{
+  width: 100%;
+  display: flex;
+}
+
+.mentor_photo{
+  width:20%;
+  margin-right: 20px
+}
+.mentoring_apply{
+  width:20%;
+  text-align: left;
+}
+.mentor_intro{
+  flex:1;
+  text-align: left
+}
+
+.review_wrap{
+  width: 90%;
+  text-align:left;
+}

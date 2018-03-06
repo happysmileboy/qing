@@ -1,8 +1,11 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block js_static %}
+  <script src="{% static 'js/mentor/consult_main.js'%}?ver=1.01"></script>
+{% endblock %}
 {%block css_static %}
-  <link href="{%static 'css/cunsult_main.css' %}?ver=1.01" rel="stylesheet">
+  <link href="{%static 'css/mentor/consult_main.css' %}?ver=1.01" rel="stylesheet">
 {%endblock%}
 
 {% block section %}
@@ -12,12 +15,12 @@
         <h1>대학별 입시상담</h1>
       </a>
     </div>
-    <div class="select_box">
+    <div class="select_box unactive">
       <a href="#">
         <h1>기업별 채용 상담</h1>
       </a>
     </div>
-    <div class="select_box">
+    <div class="select_box unactive">
       <a href="#">
         <h1>국가별 해외 교환
         <br>유학상담</h1>

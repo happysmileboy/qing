@@ -9,3 +9,6 @@ def consult_main(request):
 
 def search_univ_mentor(request):
     return render(request, 'search_univ_mentor.html')
+
+def mentor_profile(request):
+    return render(request, 'mentor_profile.html')
