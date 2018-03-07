@@ -36,3 +36,35 @@
   width: 100%;
   text-align: center;
 }
+
+.detail_box{
+  display: none;
+  opacity:0;
+  position:fixed;
+  background-color: white;
+  left:80px;
+  right:80px;
+  top:70px;
+  bottom:70px;
+  z-index: 300;
+}
+.background_box{
+  display: none;
+  opacity: 0;
+  position:fixed;
+  z-index: 200;
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+  background-color: black;
+}
+
+.detail_visible{
+  display:inline-block;
+  opacity: 1;
+}
+.background_visible{
+  display:inline-block;
+  opacity:0.5;
+}

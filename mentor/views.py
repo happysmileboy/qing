@@ -12,3 +12,6 @@ def search_univ_mentor(request):
 
 def mentor_profile(request):
     return render(request, 'mentor_profile.html')
+
+def mentor_profile2(request):
+    return render(request, 'mentor_profile2.html')

@@ -1,8 +1,12 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block js_static %}
+  <script src="{% static 'js/mentor/search_univ_mentor.js' %}?ver=1.01"></script>
+{% endblock %}
+
 {%block css_static %}
-  <link href="{%static 'css/mentor/search_univ_mentor.css' %}?ver=1.04" rel="stylesheet">
+  <link href="{%static 'css/mentor/search_univ_mentor.css' %}?ver=1.06" rel="stylesheet">
 {%endblock%}
 
 {% block section %}
@@ -23,17 +27,19 @@
     </div>
   </div>
   <div class="mentor_wrap">
-    <div>
+    <div onclick="detail_view_function('{%url 'mentor:mentor_profile2'%}')">
       <img src="{% static 'img/mentor/mentor_sample.jpg' %}">
       <h5>서재형</h5>
       <h5>고려대학교 영어영문학과</h5>
       <p>자소서/논술</p>
     </div>
     <div>
-      <img src="{% static 'img/mentor/mentor_sample.jpg' %}">
-      <h5>서재형</h5>
-      <h5>고려대학교 영어영문학과</h5>
-      <p>자소서/논술</p>
+      <a href="{% url 'mentor:mentor_profile'%}">
+        <img src="{% static 'img/mentor/mentor_sample.jpg' %}">
+        <h5>서재형</h5>
+        <h5>고려대학교 영어영문학과</h5>
+        <p>자소서/논술</p>
+      </a>
     </div>
     <div>
       <img src="{% static 'img/mentor/mentor_sample.jpg' %}">
@@ -50,5 +56,11 @@
   </div>
   <div class="infinite_scroll">
     <a href="#">더보기...</a>
+  </div>
+
+  <div class="background_box">
+
+  </div>
+  <div class="detail_box">
   </div>
 {% endblock %}

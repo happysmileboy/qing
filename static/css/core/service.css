@@ -1,3 +1,8 @@
+.service_board img{
+  width:100%;
+  height:auto;
+}
+
 .service_guide_wrap{
   background-color:#1E3666;
   width: 100%;
