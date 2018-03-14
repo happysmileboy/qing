@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block style_css %}
+  <link href="{% static "css/accounts.css" %}?ver=1.13" rel="stylesheet">
+{% endblock %}
+
+{% block section %}
+<a href="{%url 'accounts:mentor_signup'%}">멘토가입</a>
+<a href="{%url 'accounts:mentee_signup'%}">멘티가입</a>
+{% endblock %}

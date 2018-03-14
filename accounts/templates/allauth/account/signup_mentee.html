@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block style_css %}
+  <link href="{% static "css/accounts.css" %}?ver=1.13" rel="stylesheet">
+{% endblock %}
+
+{% block section %}
+<h1>회원가입</h1>
+
+
+ <form method="POST">
+      {% csrf_token %}
+      <h4>필수 정보</h4>
+      {{ signup_form.as_p }}
+      <h4>프로필 정보</h4>
+      {{ mentee_form.as_p }}
+  <button type="submit">회원가입</button>
+</form>
+
+{% endblock %}
