@@ -1,7 +1,7 @@
 from .common import *
 
 DEBUG = False
-ALLOWED_HOSTS = ['18.220.12.176', ]
+ALLOWED_HOSTS = ['52.79.161.35', 'qing.kr',]
 
 
 
