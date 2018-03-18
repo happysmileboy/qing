@@ -10,8 +10,9 @@
 <h1>회원가입</h1>
 
 
- <form method="POST">
-      {% csrf_token %}
+ <form method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  {% csrf_token %}
       <h4>필수 정보</h4>
       {{ signup_form.as_p }}
       <h4>프로필 정보</h4>

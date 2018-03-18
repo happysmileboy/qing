@@ -11,7 +11,7 @@ app_name = 'accounts'
 
 urlpatterns = [
     path('login/', views.MyLoginView.as_view(), name='account_login'),
-    path('signup/', views.MySignupView.as_view(), name='account_signup'),
+    path('signup/', views.MySignupView, name='account_signup'),
     path('signup/mentee/', views.signup_mentee, name='mentee_signup'),
     path('signup/mentor/', views.signup_mentor, name='mentor_signup'),
     path('logout/', views.Logout, name="account_logout"),

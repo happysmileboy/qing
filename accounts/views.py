@@ -22,8 +22,8 @@ from .forms import SignUpForm,MenteeSignUpForm, MentorSignUpForm
 # Create your views here.
 
 
-class MySignupView(SignupView):
-    template_name = 'signup.html'
+def MySignupView(request):
+    return render(request, 'signup.html')
 
 
 class MyLoginView(LoginView):
@@ -32,11 +32,10 @@ class MyLoginView(LoginView):
 
 
 def signup_mentee(request, commit=True):
-    signup_form = SignUpForm(request.POST or None)
-    mentee_form = MenteeSignUpForm(request.POST or None, prefix='mentee')
+    signup_form = SignUpForm(request.POST or None, request.FILES or None)
+    mentee_form = MenteeSignUpForm(request.POST or None, request.FILES or None, prefix='mentee')
     if request.method == 'POST':
         if signup_form.is_valid() and mentee_form.is_valid():
-            User.is_mentee=True
             user = signup_form.save()
             mentee = mentee_form.save(commit=False)
             mentee.user = user
@@ -48,36 +47,22 @@ def signup_mentee(request, commit=True):
     }
     return render(request, 'signup_mentee.html', ctx)
 
+
 def signup_mentor(request):
-    signup_form = SignUpForm(request.POST or None)
-    mentor_form = MentorSignUpForm(request.POST or None, prefix='mentor')
+    signup_form = SignUpForm(request.POST or None, request.FILES or None)
+    mentor_form = MentorSignUpForm(request.POST or None, request.FILES or None, prefix='mentor')
     if request.method == 'POST':
         if signup_form.is_valid() and mentor_form.is_valid():
-            User.is_mentor_univ = True
             user = signup_form.save()
-            mentee = mentor_form.save(commit=False)
-            mentee.user = user
-            mentee.save()
+            mentor = mentor_form.save(commit=False)
+            mentor.user = user
+            mentor.save()
             return login_and_redirect_next(request, user)
     ctx = {
         'signup_form': signup_form,
         'mentor_form': mentor_form,
     }
     return render(request, 'signup_mentor.html', ctx)
-
-class MentorSignUpView(CreateView):
-    model = User
-    form_class = MentorSignUpForm
-    template_name = 'signup_mentor.html'
-
-    def get_context_data(self, **kwargs):
-        kwargs['user_type'] = 'mentor'
-        return super().get_context_data(**kwargs)
-
-    def form_valid(self, form):
-        user = form.save()
-        auth_login(self.request, user)
-        return redirect(reverse(settings.SIGNUP_REDIRECT_URL))
 
 
 def Logout(request):

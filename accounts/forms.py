@@ -32,10 +32,10 @@ class SignUpForm(UserCreationForm):
 class MenteeSignUpForm(forms.ModelForm):
     class Meta:
         model = Mentee
-        exclude = ('user', 'password')
+        exclude = ('user',)
 
 
 class MentorSignUpForm(forms.ModelForm):
     class Meta:
         model = Mentor_univ
-        exclude = ('user', )
+        exclude = ('user', 'is_mentor_univ')

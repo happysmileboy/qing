@@ -11,11 +11,11 @@
 
 
   <!--myjs-->
-  <script src="{% static 'js/base.js' %}"></script>
+  <script src="{% static 'js/base.js' %}?ver=1.03"></script>
   {% block js_static %}{% endblock %}
 
   <!--mycss-->
-  <link href="{%static 'css/base.css' %}?ver=1.06" rel="stylesheet">
+  <link href="{%static 'css/base.css' %}?ver=1.08" rel="stylesheet">
   {% block css_static %}{% endblock %}
 
 </head>
@@ -32,10 +32,17 @@
         <li><a href="{%url 'core:service'%}">서비스 소개</a></li>
         <li><a href="{%url 'mentor:consult_main'%}">멘토 소개 / 접수</a></li>
         <li><a href="{%url 'core:FAQ'%}">요금안내</a></li>
-        {% if user%}
-        <li><a href="#">
-          마이페이지
-        </a>
+        {% if request.user.is_authenticated %}
+        <li class="mypage_dropbox">
+          <a href="#" >
+          <img src="{{request.user.mentor_univ.image.url}}"class="nav_photo">
+          {{request.user.name}}
+          </a>
+          <div class="dropdown-content" id="myDropdown">
+            <a href="{%url 'accounts:account_logout'%}">로그아웃</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+          </div>
         </li>
         {% else %}
         <li><a href="{%url 'accounts:account_login'%}">로그인</a></li>

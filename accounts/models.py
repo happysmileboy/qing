@@ -11,13 +11,14 @@ from django.utils.translation import gettext_lazy as _
 class UserManager(BaseUserManager):
     use_in_migrations = True
 
-    def _create_user(self, username, name, email, password, **extra_fields):
+    def _create_user(self, username, email, password, name=None, **extra_fields):
         """
         Creates and saves a User with the given email and password.
         """
         if not username:
             raise ValueError('The given email must be set')
-        name = self.normalize_name(name)
+        if name:
+            name = self.normalize_name(name)
         email = self.normalize_email(email)
         username = self.model.normalize_username(username)
         user = self.model(username=username, email=email, name=name,**extra_fields)
@@ -30,15 +31,13 @@ class UserManager(BaseUserManager):
         extra_fields.setdefault('is_staff', default=False)
         return self._create_user(username, name ,email, password, **extra_fields)
 
-    def create_superuser(self, username, name, email, password, **extra_fields):
+    def create_superuser(self, username, email, password, **extra_fields):
         extra_fields.setdefault('is_superuser', True)
         extra_fields.setdefault('is_staff', True)
-
         if extra_fields.get('is_superuser') is not True:
             raise ValueError('Superuser must have is_superuser=True.')
 
-        return self._create_user(username, name, email, password, **extra_fields)
-
+        return self._create_user(username, email, password, **extra_fields)
 
 
 class User(AbstractBaseUser, PermissionsMixin):
@@ -49,7 +48,8 @@ class User(AbstractBaseUser, PermissionsMixin):
         verbose_name='아이디'
     )
     name = models.CharField(max_length=10, verbose_name='이름',
-        unique=False)
+        unique=False,
+        null=True)
     password = models.CharField(max_length=128, verbose_name='비밀번호')
     email = models.EmailField(_('이메일'), blank=True,
         unique=True,)
@@ -58,9 +58,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(verbose_name='active', default=True)
     avatar = models.ImageField(upload_to='avatars/', null=True, blank=True)
-
-    is_mentor_univ = models.BooleanField(default=False)
-    is_mentee = models.BooleanField(default=False)
 
     objects = UserManager()
 
@@ -75,6 +72,9 @@ class User(AbstractBaseUser, PermissionsMixin):
         '''
         send_mail(subject, message, from_email, [self.email], **kwargs)
 
+    def __str__(self):
+        return self.name
+
 
 class Univ_category(models.Model):
     university = models.CharField(max_length=20, verbose_name='대학교')
@@ -85,16 +85,15 @@ class Univ_category(models.Model):
 
 class Mentee(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
+    is_mentee = models.BooleanField(default=True)
 
 
 class Mentor_univ(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
-
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, primary_key=True)
     image = models.ImageField(
         upload_to='profile/%Y/%m/%d/',
         blank=True,
         null=True,
-        verbose_name='증명사진'
     )
     phone_number = models.IntegerField(verbose_name='휴대전화')
     consult_kind = models.CharField(max_length=20, verbose_name='분야')
@@ -107,6 +106,10 @@ class Mentor_univ(models.Model):
         verbose_name='증빙자료첨부'
     )
     is_sms = models.BooleanField(default=False,)
+    is_mentor_univ = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.user.name
 
     def image_url(self):
         if self.image:
