@@ -1,6 +1,6 @@
 from .common import *
 
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ['52.79.161.35', 'qing.kr',]
 
 
