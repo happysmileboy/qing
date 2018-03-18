@@ -108,8 +108,8 @@ class Mentor_univ(models.Model):
     is_sms = models.BooleanField(default=False,)
     is_mentor_univ = models.BooleanField(default=False)
 
-    def __str__(self):
-        return self.user.name
+    # def __str__(self):
+    #     return self.user.name
 
     def image_url(self):
         if self.image:
