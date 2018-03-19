@@ -73,7 +73,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         send_mail(subject, message, from_email, [self.email], **kwargs)
 
     def __str__(self):
-        return self.name
+        return str(self.name)
 
 
 class Univ_category(models.Model):
@@ -108,8 +108,8 @@ class Mentor_univ(models.Model):
     is_sms = models.BooleanField(default=False,)
     is_mentor_univ = models.BooleanField(default=False)
 
-    # def __str__(self):
-    #     return self.user.name
+    def __str__(self):
+        return str(self.user.name)
 
     def image_url(self):
         if self.image:
