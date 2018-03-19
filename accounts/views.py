@@ -84,7 +84,7 @@ def send_confirm_mail(user):
         )
 
     url = '{0}{1}?key={2}'.format(
-        'http://localhost:8000',
+        'qing.kr',
         reverse('accounts:confirm_email'),
         email_confirm.key,
     )
