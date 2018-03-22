@@ -1,9 +1,8 @@
 {% extends "base.html" %}
-
+{% load widget_tweaks %}
 {% load static %}
-{% load i18n %}
 
-{% block head_title %}{% trans "Signup" %}{% endblock %}
+{% block head_title %}{% endblock %}
 
 {% block style_css %}
   <link href="{% static "css/accounts.css" %}?ver=1.13" rel="stylesheet">
@@ -16,11 +15,30 @@
  <form method="POST" enctype="multipart/form-data">
   {% csrf_token %}
       <h4>필수 정보</h4>
-      {{ signup_form.as_p }}
+      {% for field in signup_form %}
+      <div class="form-group">
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {{ field|add_class:'form-control' }}
+        {% for error in field.errors %}
+          <span class="help-block">{{ error }}</span>
+        {% endfor %}
+      </div>
+    {% endfor %}
   {% csrf_token %}
       <h4>프로필 정보</h4>
-      {{ mentor_form.as_p }}
+      {% for field in mentor_form %}
+      <div class="form-group">
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {{ field|add_class:'form-control' }}
+        {% for error in field.errors %}
+          <span class="help-block">{{ error }}</span>
+        {% endfor %}
+      </div>
+    {% endfor %}
   <button type="submit">회원가입</button>
 </form>
 
 {% endblock %}
+
+<label for="id_mentor-phone_number">휴대전화</label>
+<input type="number" name="mentor-phone_number" class="form-control" required="" id="id_mentor-phone_number">

@@ -7,7 +7,7 @@ from django.contrib.auth import logout as auth_logout
 from django.conf import settings
 from django.core.mail import send_mail
 
-from .models import EmailConfirm, User
+from .models import EmailConfirm, User,Univ_category
 
 from .utils import generate_random_string
 
@@ -49,6 +49,7 @@ def signup_mentee(request, commit=True):
 
 
 def signup_mentor(request):
+    univ_category = Univ_category.objects.all()
     signup_form = SignUpForm(request.POST or None, request.FILES or None)
     mentor_form = MentorSignUpForm(request.POST or None, request.FILES or None, prefix='mentor')
     if request.method == 'POST':
@@ -61,6 +62,7 @@ def signup_mentor(request):
     ctx = {
         'signup_form': signup_form,
         'mentor_form': mentor_form,
+        'univ_category': univ_category,
     }
     return render(request, 'signup_mentor.html', ctx)
 

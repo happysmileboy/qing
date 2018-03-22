@@ -70,6 +70,7 @@ INSTALLED_APPS = [
     'etc',
 
     'import_export',
+    'widget_tweaks',
 ]
 
 IMPORT_EXPORT_USE_TRANSACTIONS = True

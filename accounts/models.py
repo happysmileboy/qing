@@ -96,9 +96,10 @@ class Mentor_univ(models.Model):
         null=True,
     )
     phone_number = models.IntegerField(verbose_name='휴대전화')
-    consult_kind = models.CharField(max_length=20, verbose_name='분야')
-    detail_consulting = models.CharField(max_length=20, verbose_name='세부분야')
-    univ_category =models.ManyToManyField(Univ_category)
+    univ_category =models.ManyToManyField(Univ_category, verbose_name='학교/계열/학과')
+    consult_kind = models.CharField(max_length=20, verbose_name='상담가능분야')
+    detail_consulting = models.CharField(max_length=20, verbose_name='세부사항')
+
     vouchers =models.ImageField(
         upload_to='profile/%Y/%m/%d',
         blank=True,
