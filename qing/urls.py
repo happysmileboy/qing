@@ -8,6 +8,7 @@ urlpatterns = [
     path('', include('core.urls', namespace='core')),
     path('mentor/', include('mentor.urls', namespace='mentor')),
     path('', include('etc.urls', namespace='etc')),
+    path('payment/', include('payment.urls', namespace='payment')),
     path('accounts/',include('accounts.urls', namespace='accounts')),
     path('accounts/', include('allauth.urls')),
 ]

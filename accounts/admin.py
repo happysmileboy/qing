@@ -1,3 +1,4 @@
+from import_export.admin import ImportExportModelAdmin
 from django.contrib import admin
 from .models import User, Mentor_univ, EmailConfirm, Univ_category
 # Register your models here.
@@ -8,6 +9,6 @@ admin.site.register(EmailConfirm)
 
 
 @admin.register(Univ_category)
-class Drama2Admin(admin.ModelAdmin):
+class UnivAdmin(ImportExportModelAdmin):
     list_display = ('university', 'college', 'department', 'categorized', 'pk')
     ordering = ['pk']

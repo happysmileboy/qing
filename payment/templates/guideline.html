@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{%block css_static %}
+  <link href="{%static 'css/core/service.css' %}?ver=1.02" rel="stylesheet">
+{%endblock%}
+
+{% block section %}
+  <div class='guideline_wrap'>
+    <div class='top_wrap'>
+      <h1>신청서 접수</h1>
+      <hr>
+      <div class='mentor_wrap'>
+        <div class= 'mentor_img'>
+        </div>
+        <div class='mentor_info'>
+        </div>
+        <div class='mentoring_time'>
+        </div>
+      </div>
+      <hr>
+    </div>
+
+    <div class='mid_wrap'>
+      <div class='payment_step'></div>
+      <div class='payment_info'></div>
+      <div class='payment_info'></div>
+      <div class='payment_info'></div>
+    </div>
+    <div class='bottom_wrap'>
+      <div class='next_payment'>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -35,7 +35,11 @@
         {% if request.user.is_authenticated %}
         <li class="mypage_dropbox">
           <a href="#" >
+          {% if request.user.mentor_univ.image %}
           <img src="{{request.user.mentor_univ.image.url}}"class="nav_photo">
+          {% else %}
+          <img src="{%static 'img/accounts/no_profile_photo.png'%}"class="nav_photo">
+          {%endif%}
           {{request.user.name}}
           </a>
           <div class="dropdown-content" id="myDropdown">

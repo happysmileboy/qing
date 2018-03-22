@@ -115,7 +115,7 @@ class Mentor_univ(models.Model):
         if self.image:
             image_url = self.image.url
         else:
-            image_url = '/static/img/default_profile_image.jpg'
+            image_url = '/static/img/accounts/no_profile_photo.png'
         return image_url
 
 class Mentor(models.Model):

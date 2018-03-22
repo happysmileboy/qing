@@ -28,7 +28,7 @@ def get_secret(setting, secrets=secrets):
     try:
         return secrets[setting]
     except KeyError:
-        error_msg = "Set the {} environment variable".format(setting)
+        error_msg = "Set thise {} environment variable".format(setting)
         raise ImproperlyConfigured(error_msg)
 
 
@@ -68,7 +68,11 @@ INSTALLED_APPS = [
     'payment',
     'mentor',
     'etc',
+
+    'import_export',
 ]
+
+IMPORT_EXPORT_USE_TRANSACTIONS = True
 
 SITE_ID = 1
 
