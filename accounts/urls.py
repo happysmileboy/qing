@@ -16,7 +16,7 @@ urlpatterns = [
     path('signup/mentor/', views.signup_mentor, name='mentor_signup'),
     path('logout/', views.Logout, name="account_logout"),
     path('password_reset/', views.MyPasswordResetView.as_view(), name='account_reset_password'),
-    path('profile/', views.profile_detail, name='profile_detail'),
+    path('profile/<str:username>/', views.profile_detail_mentor_univ, name='profile_detail_mentor_univ'),
     path('confirm/', views.confirm_email, name='confirm_email'),
     path('confirm/sent/', views.email_confirm_sent, name='email_confirm_sent'),
 ]

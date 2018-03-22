@@ -1,23 +1,18 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
-from allauth.account.views import SignupView, LoginView, PasswordResetView
+from allauth.account.views import LoginView, PasswordResetView
 
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from django.conf import settings
 from django.core.mail import send_mail
 
-from .models import EmailConfirm, User,Univ_category
-
+from .models import EmailConfirm, User,University, Categorized, Department, Mentor_univ
 from .utils import generate_random_string
 
-from django.views.generic import CreateView
-
 from django.contrib.auth.decorators import login_required
-from .decorators import mentee_required
-from django.utils.decorators import method_decorator
 
-from .forms import SignUpForm,MenteeSignUpForm, MentorSignUpForm
+from .forms import SignUpForm, MenteeSignUpForm, MentorSignUpForm
 
 # Create your views here.
 
@@ -49,7 +44,6 @@ def signup_mentee(request, commit=True):
 
 
 def signup_mentor(request):
-    univ_category = Univ_category.objects.all()
     signup_form = SignUpForm(request.POST or None, request.FILES or None)
     mentor_form = MentorSignUpForm(request.POST or None, request.FILES or None, prefix='mentor')
     if request.method == 'POST':
@@ -62,7 +56,6 @@ def signup_mentor(request):
     ctx = {
         'signup_form': signup_form,
         'mentor_form': mentor_form,
-        'univ_category': univ_category,
     }
     return render(request, 'signup_mentor.html', ctx)
 
@@ -121,5 +114,8 @@ def confirm_email(request):
     return login_and_redirect_next(request, email_confirm.user)
 
 
-def profile_detail(request):
-    return render(request, 'profile_detail.html')
+def profile_detail_mentor_univ(request, username):
+    ctx = {
+        'profile': get_object_or_404(Mentor_univ, user__username=username),
+    }
+    return render(request, 'profile_detail_mentor_univ.html', ctx)

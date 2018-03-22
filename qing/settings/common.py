@@ -71,6 +71,7 @@ INSTALLED_APPS = [
 
     'import_export',
     'widget_tweaks',
+    'django_select2'
 ]
 
 IMPORT_EXPORT_USE_TRANSACTIONS = True
@@ -129,7 +130,6 @@ DATABASES = {
         'PASSWORD': 'rocketdan',
     },
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators

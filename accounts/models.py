@@ -76,11 +76,27 @@ class User(AbstractBaseUser, PermissionsMixin):
         return str(self.name)
 
 
-class Univ_category(models.Model):
-    university = models.CharField(max_length=20, verbose_name='대학교')
-    college = models.CharField(max_length=20, verbose_name='단과대학')
-    department = models.CharField(max_length=20, verbose_name='학부, 학과')
-    categorized = models.CharField(max_length=20, verbose_name='분류')
+class University(models.Model):
+    name =models.CharField(max_length=20,verbose_name='대학교')
+
+    def __str__(self):
+        return self.name
+
+
+class Categorized(models.Model):
+    name = models.CharField(max_length=20, verbose_name='분류')
+    university = models.ForeignKey(University, related_name='categorized', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
+
+
+class Department(models.Model):
+    name = models.CharField(max_length=30, verbose_name='학부,학과')
+    categorized = models.ForeignKey(Categorized, related_name='departments', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
 
 
 class Mentee(models.Model):
@@ -96,7 +112,7 @@ class Mentor_univ(models.Model):
         null=True,
     )
     phone_number = models.IntegerField(verbose_name='휴대전화')
-    univ_category =models.ManyToManyField(Univ_category, verbose_name='학교/계열/학과')
+    univ_categories = models.ForeignKey(Department, verbose_name='학교/계열/학과', related_name='univ_category', on_delete=models.CASCADE)
     consult_kind = models.CharField(max_length=20, verbose_name='상담가능분야')
     detail_consulting = models.CharField(max_length=20, verbose_name='세부사항')
 
@@ -111,6 +127,9 @@ class Mentor_univ(models.Model):
 
     def __str__(self):
         return str(self.user.name)
+
+    def __unicode__(univ_categories):
+        return univ_categories
 
     def image_url(self):
         if self.image:

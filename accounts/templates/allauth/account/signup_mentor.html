@@ -9,6 +9,7 @@
 {% endblock %}
 
 {% block section %}
+{{form.media.css}}
 <h1>회원가입</h1>
 
 
@@ -26,17 +27,22 @@
     {% endfor %}
   {% csrf_token %}
       <h4>프로필 정보</h4>
-      {% for field in mentor_form %}
-      <div class="form-group">
-        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-        {{ field|add_class:'form-control' }}
-        {% for error in field.errors %}
-          <span class="help-block">{{ error }}</span>
-        {% endfor %}
-      </div>
-    {% endfor %}
+        <label for="{{ field.id_for_label }}">{{ mentor_form.image.label }}</label>
+        {{ mentor_form.image|add_class:'form-control' }}
+        <label for="{{ field.id_for_label }}">{{ mentor_form.phone_number.label }}</label>
+        {{ mentor_form.phone_number|add_class:'form-control' }}
+        <label for="{{ field.id_for_label }}">{{ mentor_form.consult_kind.label }}</label>
+        {{ mentor_form.consult_kind|add_class:'form-control' }}
+        <label for="{{ field.id_for_label }}">{{ mentor_form.detail_consulting.label }}</label>
+        {{ mentor_form.detail_consulting|add_class:'form-control' }}
+
+        <label for="{{ field.id_for_label }}">{{ mentor_form.univ_categories.label }}</label>
+        {{ mentor_form.univ_categories|add_class:'form-control' }}
+
   <button type="submit">회원가입</button>
 </form>
+
+{{form.media.js}}
 
 {% endblock %}
 

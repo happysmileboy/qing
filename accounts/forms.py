@@ -2,7 +2,8 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.db import transaction
 
-from .models import Mentee, Mentor_univ, User, Univ_category
+from .models import Mentee, Mentor_univ, User, University, Categorized, Department
+from django_select2.forms import ModelSelect2Widget
 
 class SignUpForm(UserCreationForm):
     password1 = forms.CharField(
@@ -56,12 +57,8 @@ class MentorSignUpForm(forms.ModelForm):
     phone_number = forms.IntegerField()
     consult_kind = forms.CharField(label='상담가능분야',widget=forms.RadioSelect(choices=CONSULT_KIND))
     detail_consulting = forms.CharField(label='세부사항', widget=forms.RadioSelect(choices=DETAIL_CONSULTING))
-    univ_category =forms.ModelMultipleChoiceField(queryset=Univ_category.objects.all())
 
 
     class Meta:
         model = Mentor_univ
-        fields = ('image', 'phone_number', 'univ_category', 'consult_kind', 'detail_consulting')
-
-
-
+        fields = ('image', 'phone_number', 'consult_kind', 'detail_consulting', 'univ_categories')

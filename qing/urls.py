@@ -11,6 +11,7 @@ urlpatterns = [
     path('payment/', include('payment.urls', namespace='payment')),
     path('accounts/',include('accounts.urls', namespace='accounts')),
     path('accounts/', include('allauth.urls')),
+    path('select2/', include('django_select2.urls')),
 ]
 
 
