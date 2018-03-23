@@ -12,6 +12,7 @@ urlpatterns = [
     path('accounts/',include('accounts.urls', namespace='accounts')),
     path('accounts/', include('allauth.urls')),
     path('select2/', include('django_select2.urls')),
+    path('', include('seo.urls', namespace='seo')),
 ]
 
 

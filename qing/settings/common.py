@@ -68,10 +68,11 @@ INSTALLED_APPS = [
     'payment',
     'mentor',
     'etc',
+    'seo',
 
     'import_export',
     'widget_tweaks',
-    'django_select2'
+    'django_select2',
 ]
 
 IMPORT_EXPORT_USE_TRANSACTIONS = True
