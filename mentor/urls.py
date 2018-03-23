@@ -9,6 +9,5 @@ app_name = 'mentor'
 urlpatterns = [
     path('', views.consult_main, name='consult_main'),
     path('search', views.search_univ_mentor, name='search_univ_mentor'),
-    path('mentor', views.mentor_profile, name='mentor_profile'),
-    path('mentor2', views.mentor_profile2, name='mentor_profile2'),
+    path('mentor/<str:username>', views.mentor_profile2, name='mentor_profile2'),
 ]

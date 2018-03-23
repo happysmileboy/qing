@@ -27,32 +27,14 @@
     </div>
   </div>
   <div class="mentor_wrap">
-    <div onclick="detail_view_function('{%url 'mentor:mentor_profile2'%}')">
-      <img src="{% static 'img/mentor/mentor_sample.jpg' %}">
-      <h5>서재형</h5>
-      <h5>고려대학교 영어영문학과</h5>
+    {% for mentor in mentors%}
+    <div onclick="detail_view_function('{%url 'mentor:mentor_profile2' mentor.user.username %}')">
+      <img src="{{mentor.image.url}}">
+      <h5>{{ mentor.user.name }}</h5>
+      <h5>{{mentor.univ_categories.categorized.university.name}} {{mentor.univ_categories.name}}</h5>
       <p>자소서/논술</p>
     </div>
-    <div>
-      <a href="{% url 'mentor:mentor_profile'%}">
-        <img src="{% static 'img/mentor/mentor_sample.jpg' %}">
-        <h5>서재형</h5>
-        <h5>고려대학교 영어영문학과</h5>
-        <p>자소서/논술</p>
-      </a>
-    </div>
-    <div>
-      <img src="{% static 'img/mentor/mentor_sample.jpg' %}">
-      <h5>서재형</h5>
-      <h5>고려대학교 영어영문학과</h5>
-      <p>자소서/논술</p>
-    </div>
-    <div>
-      <img src="{% static 'img/mentor/mentor_sample.jpg' %}">
-      <h5>서재형</h5>
-      <h5>고려대학교 영어영문학과</h5>
-      <p>자소서/논술</p>
-    </div>
+    {%endfor%}
   </div>
   <div class="infinite_scroll">
     <a href="#">더보기...</a>

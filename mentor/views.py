@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
+from accounts.models import Mentor_univ
 # Create your views here.
 
 
@@ -8,12 +9,27 @@ def consult_main(request):
 
 
 def search_univ_mentor(request):
-    return render(request, 'search_univ_mentor.html')
+    mentors = Mentor_univ.objects.all()
+
+    ctx ={
+        'mentors':mentors,
+    }
+    return render(request, 'search_univ_mentor.html', ctx)
 
 
-def mentor_profile(request):
-    return render(request, 'mentor_profile.html')
+def mentor_profile(request, username):
+    ctx = {
+        'mentor': get_object_or_404(
+            Mentor_univ, user__username=username
+        )
+    }
+    return render(request, 'mentor_profile.html',ctx)
 
 
-def mentor_profile2(request):
-    return render(request, 'mentor_profile2.html')
+def mentor_profile2(request, username):
+    ctx = {
+        'mentor': get_object_or_404(
+            Mentor_univ, user__username=username
+        )
+    }
+    return render(request, 'mentor_profile2.html',ctx)
