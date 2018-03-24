@@ -7,5 +7,6 @@ app_name = 'etc'
 
 
 urlpatterns = [
-    # path('', views., name=''),
-]
+    path('notice_list/', views.notice_list, name='notice_list'),
+    path('notice_detail/<int:pk>/', views.notice_detail, name='notice_detail'),
+    ]

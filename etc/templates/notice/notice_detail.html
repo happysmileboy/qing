@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css_static %}
+<link href="{%static "css/etc/notice.css" %}?ver=1.00" rel="stylesheet">
+{% endblock %}
+
+{% block section %}
+   <div class="notice_body">
+      <h1>{{ notice.title }}</h1>
+      <p>by.  <span class="username">연소남 </span>·  <span class="datetime">{{notice.created_date|date:"Y.m.d"}}</span></p>
+      <hr>
+      <article>
+         {{ notice.content }}
+      </article>
+
+      <hr class="lightgray">
+      <div class="list_article">
+         <div>
+            <div class="row">〈</div>
+            <div>이전글</div>
+            <div class="title-container">
+               <div class="title"><a href="#"></a></div>
+               <div class="datetime"></div>
+            </div>
+         </div>
+         <div>
+            <div class="row">〉</div>
+            <div>다음글</div>
+            <div class="title-container">
+               <div class="title"><a href="#"></a></div>
+               <div class="datetime"></div>
+            </div>
+         </div>
+      </div>
+      <hr class="lightgray">
+   </div>
+{% endblock %}
