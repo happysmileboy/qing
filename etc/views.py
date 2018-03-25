@@ -31,3 +31,16 @@ def notice_detail(request, pk):
         'notice': notice
     }
     return render(request, 'notice/notice_detail.html', ctx)
+
+
+
+def FAQ(request):
+    return render(request, 'FAQ.html')
+
+
+def charge_info(request):
+    return render(request, 'charge_info.html')
+
+
+def inquiry(request):
+    return render(request, 'inquiry.html')

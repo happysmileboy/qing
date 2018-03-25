@@ -2,11 +2,33 @@
 
 {% load static %}
 
-{% block style_css %}
-  <link href="{% static "css/accounts.css" %}?ver=1.13" rel="stylesheet">
+{% block css_static %}
+  <link href="{% static "css/accounts/signup.css" %}?ver=1.14" rel="stylesheet">
 {% endblock %}
 
 {% block section %}
-<a href="{%url 'accounts:mentor_signup'%}">멘토가입</a>
-<a href="{%url 'accounts:mentee_signup'%}">멘티가입</a>
+<div class="signup_wrap">
+  <h1>큐잉 무료회원가입</h1>
+  <hr>
+</div>
+<div class="signup_mid_wrap">
+  <div class="signup_box">
+    <a href="{%url 'accounts:mentee_signup'%}">
+    <hr>
+    <h3><span>멘티</span> 회원가입</h3>
+    <p>검증된 멘토들에게</p>
+    <p>효율적인 멘토링을 받아보세요</p>
+    </a>
+  </div>
+  <div class="signup_box">
+    <a href="{%url 'accounts:mentor_signup'%}">
+      <hr>
+      <h3><span>멘토</span> 회원가입</h3>
+      <p>훌륭한 멘토가 되어</p>
+      <p>도움이 필요한 멘티들에게 도움을 주세요</p>
+    </a>
+  </div>
+</div>
+
+
 {% endblock %}

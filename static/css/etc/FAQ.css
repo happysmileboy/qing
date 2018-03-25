@@ -1,0 +1,24 @@
+.FAQ_wrap{
+  max-width:80%;
+  margin:auto;
+  padding-top:50px;
+}
+
+.FAQ_wrap hr{
+  width:70px;
+}
+
+.flex_wrap{
+  display:flex;
+  flex-direction: row;
+}
+.QA_box{
+  width:50%;
+}
+.flex_left{
+  padding-right: 40px;
+  border-right: 1px solid #ffffff;
+}
+.flex_right{
+  padding-left: 50px
+}

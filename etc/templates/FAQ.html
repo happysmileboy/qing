@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+{%block css_static %}
+  <link href="{%static 'css/etc/FAQ.css' %}?ver=1.02" rel="stylesheet">
+{%endblock%}
+
+{% block section %}
+
+  <div class="FAQ_wrap">
+    <div>
+      <hr>
+      <h1>자주하는 질문</h1>
+      <br>
+      <br>
+    </div>
+    <div class="flex_wrap">
+      <div class='QA_box flex_left'>
+        <h2>Q. 답변입니다</h2>
+        <br>
+        <p>저도 접었다 폈다 하려면 코드를 더 적어야하기 때문에 힘듭니다 ㅋㅋㅋ 적극 추진하도록하죠...</p>
+      </div>
+      <div class="QA_box flex_right">
+        <h2>Q. 답변입니다</h2>
+        <br>
+        <p>저도 접었다 폈다 하려면 코드를 더 적어야하기 때문에 힘듭니다 ㅋㅋㅋ 적극 추진하도록하죠...</p>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

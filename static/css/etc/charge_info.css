@@ -1,0 +1,26 @@
+.charge_wrap{
+  max-width:80%;
+  margin:auto;
+  padding-top:50px;
+}
+
+.charge_wrap hr{
+  width:70px;
+}
+.charge_info_wrap{
+  display: flex;
+  flex-direction: row;
+}
+
+.charge_info{
+  width: 33%;
+}
+
+.flex_mid{
+  padding-left:30px;
+  border-left:1px solid #ffffff;
+  border-right:1px solid #ffffff;
+}
+.flex_right{
+  padding-left: 30px
+}

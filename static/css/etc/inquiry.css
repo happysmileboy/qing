@@ -1,0 +1,9 @@
+.inquiry_wrap{
+  max-width:80%;
+  margin:auto;
+  padding-top:50px;
+}
+
+.inquiry_wrap hr{
+  width:70px;
+}

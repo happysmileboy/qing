@@ -1,0 +1,38 @@
+.signup_wrap{
+  max-width: 800px;
+  margin:auto;
+  padding-top:80px;
+  text-align: center;
+}
+.signup_wrap{
+  padding-bottom:18px;
+}
+
+.signup_mid_wrap{
+  max-width: 800px;
+  margin:auto;
+  display:flex;
+  padding-left:20px;
+}
+.signup_box{
+  width:40%;
+  height: 150px;
+  border:2px solid #3b4a72;
+  margin-left: 4%;
+  margin-right: 4%;
+  padding-top:40px;
+  text-align: center;
+}
+.signup_mid_wrap hr{
+  width: 50px;
+  background:#ffffff;
+  margin: auto;
+}
+.signup_box h3{
+  font-weight: 400;
+  padding-top: 20px;
+  padding-bottom:20px;
+}
+.signup_box h3 span{
+  color:#fbb03c;
+}

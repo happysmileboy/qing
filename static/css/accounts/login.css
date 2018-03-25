@@ -1,0 +1,68 @@
+.login_box{
+  font-weight: 400;
+  font-size: 36px;
+  margin: 0 0 50px 0;
+  padding-top: 80px;
+  text-align: center;
+
+}
+.login_container{
+  max-width: 350px;
+  margin: 0 auto;
+}
+
+#id_username{
+  width: 100%;
+  height: 45px;
+  border: none;
+  border-bottom: 1px solid #ced4da;
+  background:#0e224c;
+  font-size: 18px;
+  padding: 0 6px;
+  color: #ffffff;
+}
+#id_password{
+  width: 100%;
+  height: 45px;
+  border: none;
+  border-bottom: 1px solid #ced4da;
+  background:#0e224c;;
+  font-size: 18px;
+  padding: 0 6px;
+  color: #ffffff;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #ffffff;
+    opacity: 1; /* Firefox */
+    font-size:15px
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #ffffff;
+    font-size:15px
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: #ffffff;
+    font-size:15px
+}
+
+::input-webkit-autofill{
+background-color: #0e224c;;
+}
+
+.btn-block{
+  width: 150px;
+  height: 45px;
+  display: block;
+  margin: 30px auto;
+  font-size: 1.25rem;
+  color: white;
+  background: #f59f00;
+  border: 0;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.find_account{
+  text-align: center;
+}

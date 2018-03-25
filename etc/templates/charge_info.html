@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+{%block css_static %}
+  <link href="{%static 'css/etc/charge_info.css' %}?ver=1.01" rel="stylesheet">
+{%endblock%}
+
+{% block section %}
+  <div class="charge_wrap">
+    <div>
+      <hr>
+      <h1>이용 요금</h1>
+      <br>
+      <br>
+    </div>
+    <div class="charge_info_wrap">
+      <div class='charge_info'>
+        <h3>15분 멘토링 ￦ 30,000 </h3>
+        <br>
+        <p>짧고 간결한 핵심내용의 멘토링</p>
+      </div>
+      <div class='charge_info flex_mid'>
+        <h3>30분 멘토링 ￦ 40,000 </h3><br>
+        <p>상세한 내용까지 멘토링</p>
+      </div>
+      <div class='charge_info flex_right'>
+        <h3>45분 멘토링 ￦ 50,000 </h3><br>
+        <p>A to Z 완벽한 멘토링</p>
+      </div>
+    </div>
+  </div>
+{% endblock %}

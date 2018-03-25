@@ -1,41 +1,46 @@
 {% extends "base.html" %}
 
 {% load static %}
-{% load i18n %}
 {% load account socialaccount %}
 {% load staticfiles %}
 
-{% block style_css %}
-  <link href="{% static "css/accounts.css" %}?ver=1.14" rel="stylesheet">
+{% block css_static %}
+  <link href="{% static "css/accounts/login.css" %}?ver=1.16" rel="stylesheet">
 {% endblock %}
 
-{% block head_title %}{% trans "Sign In" %}{% endblock %}
+{% block head_title %}{% endblock %}
 
 {% block section %}
 <div class="login_box">
-<h1 style= "text-align: center;">로그인</h1>
-
+  <h1>로그인</h1>
+</div>
   <!--로그인-->
-<div class="">
+<div class="login_container">
   <form class="login" method="POST" action="{% url 'accounts:account_login' %}">
     {% csrf_token %}
+    <input type="username" name="login" placeholder="  아이디" autofocus="autofocus" required="" id="id_username">
+    <input type="password" name="password" placeholder="  비밀번호" required="" id="id_password">
 
-    <input type="username" name="login" placeholder="아이디" autofocus="autofocus" required="" id="id_username">
-    <input type="password" name="password" placeholder="비밀번호" required="" id="id_password">
 
     {% if redirect_field_value %}
     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
     {% endif %}
-    <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-    <button class="primaryAction btn btn-block" type="submit">{% trans "로그인" %}</button>
+    <a class="button secondaryAction" href="{% url 'account_reset_password' %}"></a>
+    <button class="primaryAction btn btn-block" type="submit">로그인</button>
+    <div class="find_account">
+      <a href
+    </div>
   </form>
   {% get_providers as socialaccount_providers %}
 
   {% if socialaccount_providers %}
-  <p><a href="{% url 'accounts:account_signup' %}">회원가입</a>
+  <p>
+    <a href="{% url 'accounts:account_signup' %}">아직 회원이 아니신가요? 회원가입</a>
   </p>
-  {% endif %}
+  <br>
+  <p><a href="#">아이디/비밀번호를 잊으셨나요? 아이디/비밀번호찾기</a></p>
 
+  {% endif %}
 
 </div>
 
