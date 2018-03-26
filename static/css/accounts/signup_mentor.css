@@ -1,0 +1,123 @@
+.signup_wrap{
+  max-width: 300px;
+  margin:auto;
+  padding-top: 50px;
+}
+
+.signup_wrap h2{
+  text-align: center;
+}
+
+li>label{
+  display:block;
+}
+.signup_wrap>label{
+  display:none;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #ffffff;
+    opacity: 1; /* Firefox */
+    font-size:13px
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #ffffff;
+    font-size:13px
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: #ffffff;
+    font-size:13px
+}
+
+.input_box{
+  width: 100%;
+  height: 45px;
+  border: none;
+  border-bottom: 2px solid #1f2f59;
+  background:#0e224c;
+  font-size: 18px;
+  padding: 0 6px;
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+.input_checkbox{
+  float: right;
+}
+
+.btn-block{
+  width: 150px;
+  height: 45px;
+  display: block;
+  margin: 60px auto;
+  font-size: 1rem;
+  color: black;
+  background: #f59f00;
+  border: 0;
+  border-radius: 2px;
+  cursor: pointer;
+
+}
+
+
+/*radio부분*/
+.radio_ul li{
+  display:inline-block;
+  margin-right: 15px;
+  margin-bottom: 15px;
+}
+
+[type="radio"]:checked,
+[type="radio"]:not(:checked){
+    position: absolute;
+    left: -9999px;
+}
+[type="radio"]:checked + label,
+[type="radio"]:not(:checked) + label{
+    position: relative;
+    padding-left: 32px;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+    color: #ffffff;
+}
+[type="radio"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before{
+    content: '';
+    position: absolute;
+    float:right;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #2d3e66;
+    background: #0e224c;
+}
+
+[type="radio"]:checked + label:after,
+[type="radio"]:not(:checked) + label:after{
+    content: '✔';
+    padding-bottom: 1px;
+    text-align: center;
+    background-color: #fbb74c;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border: 1px solid #fbb74c;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+[type="radio"]:not(:checked) + label:after{
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+[type="radio"]:checked + label:after{
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+

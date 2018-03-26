@@ -55,10 +55,10 @@ DETAIL_CONSULTING = [
 class MentorSignUpForm(forms.ModelForm):
     image = forms.ImageField()
     phone_number = forms.IntegerField()
-    consult_kind = forms.CharField(label='상담가능분야',widget=forms.RadioSelect(choices=CONSULT_KIND))
+    consult_kind = forms.CharField(label='상담가능분야', widget=forms.RadioSelect(choices=CONSULT_KIND))
     detail_consulting = forms.CharField(label='세부사항', widget=forms.RadioSelect(choices=DETAIL_CONSULTING))
 
 
     class Meta:
         model = Mentor_univ
-        fields = ('image', 'phone_number', 'consult_kind', 'detail_consulting', 'univ_categories')
+        fields = ('image', 'phone_number', 'consult_kind', 'detail_consulting', 'univ_categories','is_sms')

@@ -1,0 +1,59 @@
+.signup_wrap{
+  max-width: 300px;
+  margin:auto;
+  padding-top: 50px;
+}
+
+.signup_wrap h2{
+  text-align: center;
+}
+
+.signup_wrap label{
+  display:none;
+}
+
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #ffffff;
+    opacity: 1; /* Firefox */
+    font-size:13px
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #ffffff;
+    font-size:13px
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: #ffffff;
+    font-size:13px
+}
+
+.input_box{
+  width: 100%;
+  height: 45px;
+  border: none;
+  border-bottom: 2px solid #1f2f59;
+  background:#0e224c;
+  font-size: 18px;
+  padding: 0 6px;
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+.input_checkbox{
+  float: right;
+}
+
+.btn-block{
+  width: 150px;
+  height: 45px;
+  display: block;
+  margin: 60px auto;
+  font-size: 1rem;
+  color: black;
+  background: #f59f00;
+  border: 0;
+  border-radius: 2px;
+  cursor: pointer;
+
+}

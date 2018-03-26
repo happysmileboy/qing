@@ -47,10 +47,6 @@
     font-size:15px
 }
 
-::input-webkit-autofill{
-background-color: #0e224c;;
-}
-
 .btn-block{
   width: 150px;
   height: 45px;

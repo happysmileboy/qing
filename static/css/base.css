@@ -155,3 +155,7 @@ hr{
   background: #1f2f59;
   margin: 20px 0;
 }
+ul{
+  list-style-type: none;
+  padding:0;
+}
