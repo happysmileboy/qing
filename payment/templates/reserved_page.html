@@ -1,8 +1,8 @@
- {% extends "base.html" %}
+{% extends "base.html" %}
 {% load static %}
 
 {%block css_static %}
-  <link href="{%static 'css/payment/apply_form.css' %}?ver=1.04" rel="stylesheet">
+  <link href="{%static 'css/payment/reserved_page.css' %}?ver=1.04" rel="stylesheet">
 {%endblock%}
 
 {% block section %}
@@ -36,18 +36,5 @@
       <div class='payment_step'>
         <span class="step_1">[1] 상담 안내</span><span> > </span><span class="step_2">[2] 신청서 작성</span><span> > </span><span class="step_3">[3] 결제 및 예약</span>
       </div>
-    </div>
-
-    <hr>
-
-    <div class='bottom_wrap'>
-      <a href="{%url 'payment:guideline' mentor.pk%} " class='next_payment'>
-          <div class="arrow_left"></div>
-          <span>이전으로 돌아가기 </span>
-      </a>
-      <a href="{%url 'payment:mentoring_reserved' mentor.pk%}" class='next_payment'>
-          <span>최종 신청하기 </span>
-          <div class="arrow_right"></div>
-      </a>
     </div>
 {% endblock %}

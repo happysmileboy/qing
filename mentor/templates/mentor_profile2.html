@@ -1,6 +1,6 @@
 {% load static %}
 
-<link href="{%static 'css/mentor/mentor_profile.css' %}?ver=1.02" rel="stylesheet">
+<link href="{%static 'css/mentor/mentor_profile.css' %}?ver=1.03" rel="stylesheet">
 
 <div class="profile_wrap">
   <h1>대학 입시 전문 멘토 프로필</h1>
@@ -32,7 +32,7 @@
     <div class="mentoring_apply">
       <hr style="width:50px">
       <br/>
-      <a href="#">멘토링 접수하기 >></a>
+      <a href="{%url 'payment:guideline' mentor.pk%}">멘토링 접수하기 >></a>
     </div>
   </div>
   <hr>

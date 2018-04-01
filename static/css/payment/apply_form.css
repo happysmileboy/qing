@@ -1,0 +1,60 @@
+.guideline_wrap{
+  width: 960px;
+  margin:auto;
+  padding-top: 30px;
+  text-align: center;
+}
+.mentor_wrap{
+  padding: 20px 15px;
+  display: flex;
+}
+.mentor_img{
+  flex:0.3;
+}
+.mentor_info{
+  flex:0.45;
+  text-align: left;
+}
+.mentor_wrap p{
+  margin-bottom:5px;
+}
+.mentoring_time{
+  text-align: left;
+}
+
+.payment_step span{
+  font-size: 28px
+}
+.step_1, .step_2{
+  color:#f59f00;
+}
+
+.bottom_wrap{
+  margin: auto;
+  display: flex;
+  width:500px;
+}
+.arrow_left{
+  width: 0;
+  height: 0;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-right: 15px solid #f59f00;
+  margin-right:20px;
+}
+.arrow_right{
+  width: 0;
+  height: 0;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 15px solid #f59f00;
+  margin-left:20px;
+}
+
+.next_payment{
+  margin: auto;
+  margin-bottom:30px;
+  display: flex;
+  align-items: center;
+  width: 200px;
+}

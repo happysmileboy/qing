@@ -1,0 +1,30 @@
+.guideline_wrap{
+  width: 960px;
+  margin:auto;
+  padding-top: 30px;
+  text-align: center;
+}
+.mentor_wrap{
+  padding: 20px 15px;
+  display: flex;
+}
+.mentor_img{
+  flex:0.3;
+}
+.mentor_info{
+  flex:0.45;
+  text-align: left;
+}
+.mentor_wrap p{
+  margin-bottom:5px;
+}
+.mentoring_time{
+  text-align: left;
+}
+
+.payment_step span{
+  font-size: 28px
+}
+.step_1, .step_2, .step_3{
+  color:#f59f00;
+}

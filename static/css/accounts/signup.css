@@ -23,6 +23,9 @@
   padding-top:40px;
   text-align: center;
 }
+.signup_box:hover{
+  border-color:#fbb03c;
+}
 .signup_mid_wrap hr{
   width: 50px;
   background:#ffffff;

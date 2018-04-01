@@ -18,11 +18,11 @@
 
 
   <!--myjs-->
-  <script src="{% static 'js/base.js' %}?ver=1.03"></script>
+  <script src="{% static 'js/base.js' %}?ver=1.05"></script>
   {% block js_static %}{% endblock %}
 
   <!--mycss-->
-  <link href="{%static 'css/base.css' %}?ver=1.12" rel="stylesheet">
+  <link href="{%static 'css/base.css' %}?ver=1.14" rel="stylesheet">
   {% block css_static %}{% endblock %}
 
 </head>
@@ -36,13 +36,15 @@
         </a>
       </h1>
       <ul>
-        <li><a href="{%url 'core:service'%}">서비스 소개</a></li>
-        <li><a href="{%url 'mentor:consult_main'%}">멘토 소개 / 접수</a></li>
-        <li><a href="#">요금안내/FAQ</a>
-          <div class="dropdown-content" id="myDropdown">
-            <a href="{%url 'etc:charge_info'%}">이용요금</a>
-            <a href="{%url 'etc:FAQ'%}">자주하는 질문</a>
-            <a href="{%url 'etc:inquiry'%}">1:1 문의하기</a>
+        <li><a href="{%url 'core:service'%}" class = "service_page">서비스 소개</a></li>
+        <li><a href="{%url 'mentor:consult_main'%}" class="mentor_page">멘토 소개 / 접수</a></li>
+        <li class="FAQlink"><a href="#">요금안내/FAQ</a>
+          <div class="dropdown_content_FAQ" id="myDropdown">
+            <div class="transparent"></div>
+            <div class="triangle"></div>
+            <a href="{%url 'etc:charge_info'%}" class="color_orange">이용요금</a>
+            <a href="{%url 'etc:FAQ'%}" class="color_orange">자주하는 질문</a>
+            <a href="{%url 'etc:inquiry'%}" class="color_orange">1:1 문의하기</a>
           </div>
         </li>
 
@@ -51,14 +53,11 @@
         {% if request.user.is_authenticated %}
         <li class="mypage_dropbox">
           <a href="#" >
-          {% if request.user.mentor_univ.image %}
-          <img src="{{request.user.mentor_univ.image.url}}"class="nav_photo">
-          {% else %}
-          <img src="{%static 'img/accounts/no_profile_photo.png'%}"class="nav_photo">
-          {%endif%}
           {{request.user.name}}
           </a>
-          <div class="dropdown-content" id="myDropdown">
+          <div class="dropdown_content_mypage" id="myDropdown">
+            <div class="transparent"></div>
+            <div class="triangle"></div>
             <a href="{%url 'accounts:account_logout'%}">로그아웃</a>
             <a href="#">Link 2</a>
             <a href="#">Link 3</a>
@@ -91,12 +90,16 @@
       <p>(주)로켓단</p>
       <br>
       <p>대표이사/ 박성환</p>
-      <p>주소</p>
-      <p>대표전화</p>
-      <p>사업자번호</p>
-      <p>통신판매업번호</p>
-      <p>문의하기</p>
-
+      <p>주소/ 서울특별시 동대문구 안암로 26길 9(제기동)</p>
+      <p>대표전화/ <a href="tel:010-6574-4115">010-2988-9910</a></p>
+      <p>사업자번호/ 773-15-00723</p>
+      {# <p>통신판매업번호</p> #}
+      <p>문의하기 <a href="mailto:qingrocket@gmail.com">qingrocket@gmail.com</a></p>
+      <hr>
+    </div>
+    <div class="copyright">
+      <p><a href="#">개인정보취급방침</a> / <a href="#">서비스 이용약관</a></p>
+      <p>copyright Rocketdan, All rights Reserved</p>
     </div>
   </footer>
 

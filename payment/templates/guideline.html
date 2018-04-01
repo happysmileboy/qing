@@ -2,7 +2,7 @@
 {% load static %}
 
 {%block css_static %}
-  <link href="{%static 'css/core/service.css' %}?ver=1.02" rel="stylesheet">
+  <link href="{%static 'css/payment/guideline.css' %}?ver=1.04" rel="stylesheet">
 {%endblock%}
 
 {% block section %}
@@ -12,24 +12,61 @@
       <hr>
       <div class='mentor_wrap'>
         <div class= 'mentor_img'>
+          <img src="{{mentor.image.url}}">
         </div>
         <div class='mentor_info'>
+          <h4>신청한 멘토</h4>
+          <br>
+          <p>이름/ {{mentor.user.name}}</p>
+          <p>학교/ {{mentor.univ_categories.categorized.university.name}} {{mentor.univ_categories.name}}</p>
+          <p>분야/ {{mentor.consult_kind}}, {{mentor.detail_consulting}}</p>
         </div>
         <div class='mentoring_time'>
+          <h4>멘토 상담 희망 시간</h4>
+          <br>
+          <p>월/ 17:30 ~ 20:00</p>
+          <p>수/ 18:00 ~ 19:00</p>
+          <p>금/ 18:00 ~ 19:00</p>
         </div>
       </div>
       <hr>
     </div>
 
     <div class='mid_wrap'>
-      <div class='payment_step'></div>
-      <div class='payment_info'></div>
-      <div class='payment_info'></div>
-      <div class='payment_info'></div>
-    </div>
-    <div class='bottom_wrap'>
-      <div class='next_payment'>
+      <div class='payment_step'>
+        <span class="step_1">[1] 상담 안내</span><span> > </span><span class="step_2">[2] 신청서 작성</span><span> > </span><span class="step_3">[3] 결제 및 예약</span>
       </div>
+      <div class='payment_info'>
+        <h2>상담/예약</h2>
+        <br>
+        <p>1) 작성하신 신청서가 멘토에게 전달되면 멘토링 예약이 이루어집니다.</p>
+        <p>2) 멘토링 시간이 정해지면 멘토가 전화를 드려 멘토링을 진행합니다.</p>
+        <p>3) 큐잉은 별도의 로그인 없이 기입해주신 휴대폰번호로 모든 과정을 SMS문자 안내 메세지를 발송하여 간편하게 이용하실 수 있습니다.</p>
+        <p>4) SMS안내 문자 메세지로 매칭/ 결제/ 확인 등의 여부를 확인하실 수 있습니다.</p>
+        <p>5) 결제 계좌이체로 입금이 확인된 이후에 멘토링 예약이 진행됩니다.</p>
+        <p>6) 결제를 완료하지 않으면 예약은 자동 취소됩니다.</p>
+      </div>
+      <div class='payment_info'>
+        <h2>취소/ 환불</h2>
+        <br>
+        <p>1) 예약이 완료된 멘토링에 대한 취소/ 변경은 예정된 12시간 전까지 큐잉 고객센터 (010-7375-7552, qingrocket@gmail.com)을 통해 가능합니다.</p>
+        <p>2) 예정된 시간 12시간 전 이후에는 취소 및 변경이 불가능합니다.</p>
+        <p>3) 멘토의 사정으로 인해 멘토링이 진행되지 못한 경우에는 100% 환불해드립니다.</p>
+        <p>4) 신청자 사정으로 멘토링이 진행되지 않는 경우 또는 멘토링이 진행된 경우에는 환불해 드리기 어렵습니다.</p>
+      </div>
+      <div class='payment_info payment_info_last'>
+        <h2>동의사항</h2>
+        <br>
+        <p><span>개인정보취급방침에 관하여 다음에 동의합니다 [자세히 보기]</span><input type="checkbox"></p>
+        <p><span>큐잉 서비스 이용약관에 관하여 다음에 동의합니다 [자세히 보기]</span><input type="checkbox"></p>
+      </div>
+    </div>
+    <hr>
+    <div class='bottom_wrap'>
+      <a href="{%url 'payment:apply_mentoring' mentor.pk%} " class='next_payment'>
+          <span>다음 </span>
+          <div class="arrow_right"></div>
+      </a>
     </div>
   </div>
 {% endblock %}

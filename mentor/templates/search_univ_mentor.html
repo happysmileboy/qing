@@ -6,7 +6,7 @@
 {% endblock %}
 
 {%block css_static %}
-  <link href="{%static 'css/mentor/search_univ_mentor.css' %}?ver=1.08" rel="stylesheet">
+  <link href="{%static 'css/mentor/search_univ_mentor.css' %}?ver=1.09" rel="stylesheet">
 {%endblock%}
 
 {% block section %}
@@ -28,12 +28,14 @@
   </div>
   <div class="mentor_wrap">
     {% for mentor in mentors%}
+    {% if mentor.is_mentor_univ %}
     <div onclick="detail_view_function('{%url 'mentor:mentor_profile2' mentor.user.username %}')">
       <img src="{{mentor.image.url}}">
       <h5>{{ mentor.user.name }}</h5>
       <h5>{{mentor.univ_categories.categorized.university.name}} {{mentor.univ_categories.name}}</h5>
       <p>자소서/논술</p>
     </div>
+    {%endif%}
     {%endfor%}
   </div>
   <div class="infinite_scroll">

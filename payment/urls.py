@@ -5,6 +5,7 @@ from . import views
 app_name = 'payment'
 
 urlpatterns = [
-    path('guideline/', views.guideline, name='guideline'),
-    path('apply/', views.apply_mentoring, name='apply_mentoring'),
+    path('guideline/<int:pk>/', views.guideline, name='guideline'),
+    path('apply/<int:pk>/', views.apply_mentoring, name='apply_mentoring'),
+    path('reserved/<int:pk>/',views.mentoring_reserved, name='mentoring_reserved')
 ]
