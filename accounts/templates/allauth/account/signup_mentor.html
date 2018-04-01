@@ -4,8 +4,14 @@
 
 {% block head_title %}{% endblock %}
 
+{% block js_static %}
+  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="{% static 'js/accounts/index.js'%}?ver=1.00"></script>
+  <script src="{% static 'js/accounts/signup_mentor.js' %}?ver=1.05"></script>
+{% endblock %}
+
 {% block css_static %}
-  <link href="{% static 'css/accounts/signup_mentor.css' %}?ver=1.21" rel="stylesheet">
+  <link href="{% static 'css/accounts/signup_mentor.css' %}?ver=1.23" rel="stylesheet">
 {% endblock %}
 
 {% block section %}
@@ -25,6 +31,7 @@
     <input type="number" name="mentor-phone_number" placeholder="휴대전화"  required="" id="id_mentor-phone_number" class="input_box">
 
     <!--radio-->
+    {% csrf_token %}
     <label for="">상담가능분야</label>
     <ul id="id_mentor-consult_kind" class='radio_ul'>
       <li>
@@ -73,7 +80,11 @@
         {{ mentor_form.univ_categories|add_class:'form-control' }}
     <label for="{{ field.id_for_label }}">{{ mentor_form.image.label }}</label>
         {{ mentor_form.image|add_class:'form-control' }}
-    {% csrf_token %}
+    <br>
+
+    <label>멘토링 가능 시간</label>
+    <div id="weekly-schedule"></div>
+
     <br>
     <br>
       <p>
