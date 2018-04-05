@@ -7,3 +7,14 @@
 .inquiry_wrap hr{
   width:70px;
 }
+.mid_wrap{
+  display:flex;
+}
+.mid_box{
+  flex:0.5;
+  display:flex;
+}
+.fa-w-16 {
+font-size: 120px;
+margin-right: 40px;
+}

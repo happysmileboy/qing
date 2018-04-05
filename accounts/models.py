@@ -122,7 +122,9 @@ class Mentor_univ(models.Model):
         null=True,
         verbose_name='증빙자료첨부'
     )
-    is_sms = models.BooleanField(default=False,)
+    is_private = models.BooleanField(default=False, verbose_name='개인정보이용')
+    is_agreement = models.BooleanField(default=False, verbose_name='서비스이용약관')
+    is_sms = models.BooleanField(default=False, verbose_name='SMS광고수신')
     is_mentor_univ = models.BooleanField(default=False)
 
     def __str__(self):

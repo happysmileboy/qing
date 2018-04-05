@@ -61,4 +61,4 @@ class MentorSignUpForm(forms.ModelForm):
 
     class Meta:
         model = Mentor_univ
-        fields = ('image', 'phone_number', 'consult_kind', 'detail_consulting', 'univ_categories','is_sms')
+        fields = ('image', 'phone_number', 'consult_kind', 'detail_consulting', 'univ_categories', 'is_private', 'is_agreement','is_sms')

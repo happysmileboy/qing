@@ -2,7 +2,7 @@
 {% load static %}
 
 {%block css_static %}
-  <link href="{%static 'css/payment/apply_form.css' %}?ver=1.04" rel="stylesheet">
+  <link href="{%static 'css/payment/apply_form.css' %}?ver=1.05" rel="stylesheet">
 {%endblock%}
 
 {% block section %}
@@ -40,14 +40,22 @@
 
     <hr>
 
+    <form method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+
+
+
     <div class='bottom_wrap'>
       <a href="{%url 'payment:guideline' mentor.pk%} " class='next_payment'>
           <div class="arrow_left"></div>
           <span>이전으로 돌아가기 </span>
       </a>
-      <a href="{%url 'payment:mentoring_reserved' mentor.pk%}" class='next_payment'>
-          <span>최종 신청하기 </span>
-          <div class="arrow_right"></div>
-      </a>
+      <div class='next_payment' style="text-align:right;">
+        <button type="submit" >최종 제출하기
+        <div class="arrow_right"></div></button>
+
+      </div>
     </div>
+    </form>
 {% endblock %}

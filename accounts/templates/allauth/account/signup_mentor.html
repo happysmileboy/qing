@@ -88,6 +88,16 @@
     <br>
     <br>
       <p>
+        서비스이용약관에 동의합니다. [필수]
+        {{ mentor_form.is_agreement|add_class:'form-control' }}
+        <label for="" style="float:right"></label>
+      </p>
+      <p>
+        개인정보이용에 동의합니다. [필수]
+        {{ mentor_form.is_private|add_class:'form-control' }}
+        <label for="" style="float:right"></label>
+      </p>
+      <p>
         SMS광고수신에 동의합니다.[선택]
         {{ mentor_form.is_sms|add_class:'form-control' }}
         <label for="" style="float:right"></label>

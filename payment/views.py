@@ -1,5 +1,8 @@
-from django.shortcuts import render, get_object_or_404
-from accounts.models import Mentor_univ
+from django.shortcuts import render, get_object_or_404, redirect
+from accounts.models import User, Mentor_univ
+from .forms import ReservationForm
+from .models import Reservation
+from django.http import HttpResponse, Http404, JsonResponse
 # Create your views here.
 
 
@@ -13,15 +16,42 @@ def guideline(request, pk):
 
 def apply_mentoring(request, pk):
     mentor = get_object_or_404(Mentor_univ, pk=pk)
+    form = ReservationForm(request.POST or None)
+    if request.method == 'POST':
+        reservation =form.save(commit=False)
+        reservation.mentor = mentor
+        reservation.user = request.user
+        reservation.save()
+        return redirect(reservation.get_absolute_url())
+
     ctx={
-        'mentor':mentor,
-    }
+            'mentor' : mentor,
+            'form':form,
+        }
     return render(request, 'apply_form.html',ctx)
 
 
 def mentoring_reserved(request, pk):
-    mentor = get_object_or_404(Mentor_univ, pk=pk)
+    reservation = get_object_or_404(Reservation, pk=pk, user=request.user)
+    mentor = reservation.mentor
     ctx = {
-        'mentor': mentor,
+        'mentor':mentor,
+        'reservation': reservation,
     }
+
     return render(request, 'reserved_page.html',ctx)
+
+
+
+def my_reservation(request, username):
+    user = get_object_or_404(User, username=username)
+    try:
+        mentor = get_object_or_404(Mentor_univ, user=request.user)
+        reservation = Reservation.objects.filter(mentor=mentor)
+    except Mentor_univ.DoesNotExist:
+        Http404('멘토가 아닙니다')
+    ctx = {
+        'reservation': reservation,
+    }
+    return render(request, 'mypage.html', ctx)
+

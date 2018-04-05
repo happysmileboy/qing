@@ -52,6 +52,7 @@ def signup_mentor(request):
             mentor = mentor_form.save(commit=False)
             mentor.user = user
             mentor.save()
+            print(request.POST)
             return login_and_redirect_next(request, user)
     ctx = {
         'signup_form': signup_form,

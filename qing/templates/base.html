@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="naver-site-verification" content="7726bd0a121d46d4986778ece965b60c72eee280"/>
+  <meta name= "description=" Content="세상의 모든 궁금증! 큐잉에 물어보세요">
   <title>큐잉</title>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -12,8 +13,7 @@
 
 
   <!--font_awesome-->
-  <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
-<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
 
 
 
@@ -58,8 +58,9 @@
           <div class="dropdown_content_mypage" id="myDropdown">
             <div class="transparent"></div>
             <div class="triangle"></div>
+            <a href="{%url 'payment:my_reservation' request.user.username %}">마이페이지</a>
             <a href="{%url 'accounts:account_logout'%}">로그아웃</a>
-            <a href="#">Link 2</a>
+
             <a href="#">Link 3</a>
           </div>
         </li>

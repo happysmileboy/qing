@@ -57,4 +57,15 @@
   display: flex;
   align-items: center;
   width: 200px;
+  font-size: 17px;
+}
+
+.bottom_wrap button{
+  font-size: 17px;
+  background: none;
+  border:none;
+  color:white;
+  cursor:pointer;
+  display: flex;
+  align-items: center;
 }
