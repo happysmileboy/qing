@@ -43,9 +43,6 @@
     <form method="POST">
       {% csrf_token %}
       {{ form.as_p }}
-
-
-
     <div class='bottom_wrap'>
       <a href="{%url 'payment:guideline' mentor.pk%} " class='next_payment'>
           <div class="arrow_left"></div>

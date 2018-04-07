@@ -45,13 +45,13 @@ def mentoring_reserved(request, pk):
 
 def my_reservation(request, username):
     user = get_object_or_404(User, username=username)
-    try:
+    if get_object_or_404(Mentor_univ, user=request.user) :
         mentor = get_object_or_404(Mentor_univ, user=request.user)
         reservation = Reservation.objects.filter(mentor=mentor)
-    except Mentor_univ.DoesNotExist:
-        Http404('멘토가 아닙니다')
-    ctx = {
-        'reservation': reservation,
-    }
-    return render(request, 'mypage.html', ctx)
+        ctx = {
+            'reservation': reservation,
+        }
+        return render(request, 'mypage.html', ctx)
+    else:
+        return render(request, 'mypage.html')
 

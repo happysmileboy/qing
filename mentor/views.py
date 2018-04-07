@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 
-from accounts.models import Mentor_univ
+from accounts.models import Mentor_univ, Department
 # Create your views here.
 
 
@@ -8,9 +8,15 @@ def consult_main(request):
     return render(request, 'consult_main.html')
 
 
-def search_univ_mentor(request):
-    mentors = Mentor_univ.objects.all()
-
+def search_univ_mentor(request, department_pk=None):
+    if department_pk is not None:
+        mentors=Mentor_univ.objects.filter(univ_categories__pk=department_pk)
+        try:
+            department = Department.objects.get(pk=department_pk)
+        except Department.DoesNotExist:
+            raise Http404('없는 학부입니다.')
+    else:
+        mentors= Mentor_univ.objects.all()
     ctx ={
         'mentors':mentors,
     }

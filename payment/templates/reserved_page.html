@@ -36,5 +36,26 @@
       <div class='payment_step'>
         <span class="step_1">[1] 상담 안내</span><span> > </span><span class="step_2">[2] 신청서 작성</span><span> > </span><span class="step_3">[3] 결제 및 예약</span>
       </div>
+      <div class="reservation_info">
+        <h3>신청서</h3>
+        <p>고객님의 접수가 완료되었습니다</p>
+        <p>예약 진행과정 및 결제 관련 내용은 SMS로 발송됩니다</p>
+        <p>아래의 계좌로 입금이 확인된 이후 예약이 진행됩니다</p>
+        <br>
+        <p>하나은행 391-910060-16705/예금주 서재형</p>
+        <p>예약번호 : {{reservation.pk}}</p>
+        <p>결제금액/{{reservation.price}}</p>
+      </div>
+    </div>
+    <hr>
+    <div class='bottom_wrap'>
+      <ul>
+        <a href="#">예약내역 확인</a>
+        <a href="#">
+          카카오톡 1:1상담
+        </a>
+        <a href="#">
+          홈으로
+        </li>
     </div>
 {% endblock %}
