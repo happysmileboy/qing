@@ -49,10 +49,27 @@
           <span>이전으로 돌아가기 </span>
       </a>
       <div class='next_payment' style="text-align:right;">
-        <button type="submit" >최종 제출하기
+        <button type="submit" onclick="myfunction()">최종 제출하기
         <div class="arrow_right"></div></button>
 
       </div>
     </div>
     </form>
+
+    <script>
+    $(document).ready(function(){
+      var etc = document.getElementById("id_prequestion_6").parentElement
+      var text_etc = document.createElement("Input")
+      etc.appendChild(text_etc)
+      text_etc.setAttribute("type","text")
+      text_etc.setAttribute("id","etc")
+    })
+
+    function myfunction(){
+      var textnode=document.getElementById("etc").value
+      document.getElementById("id_prequestion_6").value = textnode
+
+
+    }
+    </script>
 {% endblock %}

@@ -14,6 +14,8 @@ from django.contrib.auth.decorators import login_required
 
 from .forms import SignUpForm, MenteeSignUpForm, MentorSignUpForm
 
+from payment.models import Reservation
+
 # Create your views here.
 
 
@@ -120,3 +122,16 @@ def profile_detail_mentor_univ(request, username):
         'profile': get_object_or_404(Mentor_univ, user__username=username),
     }
     return render(request, 'profile_detail_mentor_univ.html', ctx)
+
+
+def mentorpage(request, username):
+    user = get_object_or_404(User, username=username)
+    if get_object_or_404(Mentor_univ, user=request.user) :
+        mentor = get_object_or_404(Mentor_univ, user=request.user)
+        reservation = Reservation.objects.filter(mentor=mentor).order_by('-id')
+        ctx = {
+            'reservation': reservation,
+        }
+        return render(request, 'mentorpage.html', ctx)
+    else:
+        return render(request, 'mypage.html')

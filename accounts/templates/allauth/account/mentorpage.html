@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css_static %}
+  <link href="{% static 'css/accounts/mentorpage.css' %}?ver=1.16" rel="stylesheet">
+{% endblock %}
+
+{% block section %}
+<div class="mypage_wrap">
+  <div class="page_choice_wrap">
+    <a href="#">개인정보수정</a>
+    <a href="#">예약내역</a>
+  </div>
+  <br>
+  <h3>{{user.name}} 멘토<span>님의 예약내역</span></h3>
+  <hr>
+
+
+    {% if reservation %}
+      {% for reservation in reservation %}
+      <div class="reservation_box">
+        <div class="res_state">
+          <span class="res_num">예약번호 {{reservation.pk}}</span><span class="res_time">{{reservation.date_joined|date:"y.m.d h:i"}}</span>
+        </div>
+        <div class="res_info_box">
+          <span>{{reservation.mentor}} 멘토</span>
+          <span>{{reservation.price}}</span>
+          {% if reservation.is_approval%}
+          <span>예약완료</span>
+          {%elif reservation.is_deposit%}
+          <span>멘토 승인중</span>
+          {%else%}
+          <span>입금 대기중</span>
+          {%endif%}
+        </div>
+      </div>
+      {%endfor%}
+    {%else%}
+      <div>예약내역이 없습니다</div>
+    {%endif%}
+  </div>
+</div>
+
+<script>
+function myfunction(){
+
+}
+</script>
+
+{%endblock%}

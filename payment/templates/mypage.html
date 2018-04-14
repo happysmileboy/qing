@@ -13,9 +13,11 @@
   </div>
 
   <div>
+
     {% if reservation %}
       {% for reservation in reservation %}
       No.{{reservation.pk}}
+      핸드폰/ {{reservation.phone_number}}
       {%endfor%}
     {%else%}
       <div>예약내역이 없습니다</div>

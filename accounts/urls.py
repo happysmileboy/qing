@@ -19,4 +19,6 @@ urlpatterns = [
     path('profile/<str:username>/', views.profile_detail_mentor_univ, name='profile_detail_mentor_univ'),
     path('confirm/', views.confirm_email, name='confirm_email'),
     path('confirm/sent/', views.email_confirm_sent, name='email_confirm_sent'),
+
+    path('mentorpage/<str:username>', views.mentorpage, name="mentorpage"),
 ]

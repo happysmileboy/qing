@@ -58,7 +58,11 @@
           <div class="dropdown_content_mypage" id="myDropdown">
             <div class="transparent"></div>
             <div class="triangle"></div>
-            <a href="{%url 'payment:my_reservation' request.user.username %}">마이페이지</a>
+            {% if request.user.mentor_univ.is_mentor_univ %}
+            <a href="{%url 'accounts:mentorpage' request.user.username %}">마이페이지</a>
+            {% elif request.user.mentee.is_mentee%}
+            dd
+            {%endif%}
             <a href="{%url 'accounts:account_logout'%}">로그아웃</a>
 
             <a href="#">Link 3</a>
@@ -73,13 +77,6 @@
   <!--section-->
 
   <section>
-    {% if request.user.mentor_univ.is_mentor_univ%}
-      <link rel="stylesheet" type="text/css" href="{% static 'css/teachers.css' %}">
-      멘토입니다
-    {% elif user.is_authenticated and user.is_mentee %}
-      <link rel="stylesheet" type="text/css" href="{% static 'css/students.css' %}">
-      멘티입니다
-    {% endif %}
     {%block section%}
     {%endblock%}
   </section>

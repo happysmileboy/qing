@@ -12,14 +12,18 @@ def search_univ_mentor(request, department_pk=None):
     if department_pk is not None:
         mentors=Mentor_univ.objects.filter(univ_categories__pk=department_pk)
         try:
-            department = Department.objects.get(pk=department_pk)
+            departments = Department.objects.get(pk=department_pk)
         except Department.DoesNotExist:
             raise Http404('없는 학부입니다.')
+        ctx ={
+        'mentors':mentors,
+        'departments':departments,
+        }
     else:
         mentors= Mentor_univ.objects.all()
-    ctx ={
+        ctx ={
         'mentors':mentors,
-    }
+        }
     return render(request, 'search_univ_mentor.html', ctx)
 
 
